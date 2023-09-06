@@ -71,27 +71,27 @@ const Content = () => {
     {
       title: "siswa",
       text: `Dengan hormat,\n\nSebagai wali dari ${
-        inputs.nama ? inputs.nama : "[NAMA]"
+        inputs.nama 
       }, saya bermaksud untuk memberitahukan bahwa ${
-        inputs.nama ? inputs.nama : "[NAMA]"
+        inputs.nama
       } tidak dapat hadir di sekolah pada ${formatDateIndonesian(
-        inputs.tanggal ? inputs.tanggal :"[TANGGAL]"
+        inputs.tanggal
       )} dikarenakan ${
-        inputs.izin ? inputs.izin : "[IZIN]"
+        inputs.izin
       }. Mohon kerjasamanya untuk memberikan informasi jika ada tugas atau kegiatan penting yang terlewat.\n\nDemikian surat izin ini saya sampaikan. Atas perhatian dan kerjasamanya saya ucapkan terima kasih.\n\nHormat saya,\n${
-        inputs.namaWali ? inputs.namaWali : "[NAMA WALI]"
+        inputs.namaWali
       }`,
     },
     {
       title: "kuliah",
       text: `Dengan hormat,\n\nSaya, ${
-        inputs.nama ? inputs.nama : "[NAMA]"
+        inputs.nama
       }, bermaksud untuk memberitahukan bahwa saya tidak dapat menghadiri perkuliahan pada ${formatDateIndonesian(
-        inputs.tanggal ? inputs.tanggal :"[TANGGAL]"
+        inputs.tanggal
       )} dikarenakan ${
-        inputs.izin ? inputs.izin : "[IZIN]"
+        inputs.izin
       }. Mohon kerjasamanya untuk memberikan informasi jika ada tugas atau kegiatan penting yang terlewat.\n\nDemikian surat izin ini saya sampaikan. Atas perhatian dan kerjasamanya saya ucapkan terima kasih.\n\nHormat saya,\n${
-        inputs.nama ? inputs.nama : "[NAMA]"
+        inputs.nama
       }`,
     },
   ];
