@@ -10,24 +10,24 @@ const Content = () => {
   const [isStatusActive, setisStatusActive] = useState(null);
   const [copyMessage, setCopyMessage] = useState("");
   const [inputs, setInputs] = useState({
-    izin: "",
-    kepada: "",
-    nama: "",
-    namaWali: "",
-    namaGuru: "",
-    tanggal: "",
+    izin: "[Izin]",
+    kepada: "[Kepada]",
+    nama: "[Nama kamu]",
+    namaWali: "[Nama Wali]",
+    namaGuru: "[Nama Guru]",
+    tanggal: "Tanggal",
   });
   const handleCopy = () => {
     navigator.clipboard.writeText(content[isStatusActive].text).then(
       function () {
-        // Sukses menyalin
+        
         setCopyMessage("Teks berhasil disalin!");
         setTimeout(() => {
           setCopyMessage("");
-        }, 2000); // Menghilangkan pesan setelah 2 detik
+        }, 2000); 
       },
       function (err) {
-        // Terjadi kesalahan saat menyalin
+      
         setCopyMessage("Gagal menyalin teks.");
       }
     );
