@@ -10,12 +10,12 @@ const Content = () => {
   const [isStatusActive, setisStatusActive] = useState(null);
   const [copyMessage, setCopyMessage] = useState("");
   const [inputs, setInputs] = useState({
-    izin: "[Izin]",
-    kepada: "[Kepada]",
-    nama: "[Nama kamu]",
-    namaWali: "[Nama Wali]",
-    namaGuru: "[Nama Guru]",
-    tanggal: "Tanggal",
+    izin: "",
+    kepada: "",
+    nama: "",
+    namaWali: "",
+    namaGuru: "",
+    tanggal: "",
   });
   const handleCopy = () => {
     navigator.clipboard.writeText(content[isStatusActive].text).then(
