@@ -9,6 +9,6 @@
 - **ViteJs - Reactjs**: Kerangka kerja JavaScript yang mempercepat proses pengembangan.
 - **TailwindCss**: Kerangka kerja CSS untuk mendesain antarmuka pengguna yang responsif dan modern.
 
-> 📌 **Pesan Penting:** Meski alat ini memudahkan, kita seharusnya tetap memahami pentingnya berkomunikasi dengan sopan melalui tulisan. Jangan terlalu bergantung, namun gunakan sebagai panduan.
+> 📌 **Pesan Penting:** Meski alat ini memudahkan, kita seharusnya tetap memahami esensi berkomunikasi dengan sopan melalui tulisan. Jangan terlalu bergantung, namun gunakan sebagai panduan.
 
 ---
