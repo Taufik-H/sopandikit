@@ -197,9 +197,9 @@ Wasalamualaikum Warahmatullah Wabarakatuh.`.split("\n"),
           onClick={handleCopy}
           className={`mt-5 px-4 py-2 rounded-lg ${
             copyMessage
-              ? "bg-green-500"
+              ? "bg-green-500 text-white"
               : "bg-white border-2 border-slate-300 border-inherit text-slate-800 hover:bg-slate-200"
-          }  text-white transition-all  flex gap-2 items-center`}
+          }   transition-all  flex gap-2 items-center`}
         >
           {copyMessage ? (
             <>
@@ -215,7 +215,7 @@ Wasalamualaikum Warahmatullah Wabarakatuh.`.split("\n"),
         </button>
       </div>
       {isStatusActive === null ? (
-        <div className=" relative rounded-md mt-2 h-72 w-full bg-slate-700">
+        <div className=" relative rounded-md mt-2 h-72 w-full transition-all duration-200 bg-slate-700">
           <img
             src={bg}
             alt="bg"
@@ -227,11 +227,11 @@ Wasalamualaikum Warahmatullah Wabarakatuh.`.split("\n"),
           (item, index) =>
             isStatusActive === index && (
               <div key={index} className="w-full">
-                <div className="flex relative rounded-md mt-2 justify-end min-h-72 w-full bg-slate-700 overflow-hidden">
+                <div className="flex relative rounded-md transition-all duration-200 mt-2 justify-end min-h-72 w-full bg-slate-700 overflow-hidden">
                   <img
                     src={bg}
                     alt="bg"
-                    className="w-full h-full object-cover absolute"
+                    className="w-full h-full object-cover absolute transition-all duration-200"
                   />
                   {isStatusActive !== null && (
                     <div
