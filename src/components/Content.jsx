@@ -124,7 +124,7 @@ const Content = () => {
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
             <Input
-              label={"Izin Dalam Rangka"}
+              label={"Alasan Izin"}
               name="izin"
               onChange={handleInputChange}
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
@@ -151,14 +151,14 @@ const Content = () => {
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
             <Input
-              label={"Izin Dalam Rangka"}
+              label={"Alasan Izin"}
               name="izin"
               onChange={handleInputChange}
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
             <DatePicker
               label="Tanggal Izin"
-              labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
+              labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500 w-full"
               name="tanggal"
               onChange={handleDateChange}
             />
