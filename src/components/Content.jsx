@@ -191,7 +191,7 @@ const Content = () => {
                   alt="bg"
                   className="w-full h-full object-cover absolute"
                 />
-                <div className="chat-bubble relative w-62 p-2 bg-[#D9FDD3] mt-10 float-right mb-10 mr-5 rounded-lg rounded-tr-[0px]">
+                <div className="chat-bubble relative w-64 p-2 bg-[#D9FDD3] mt-10 float-right mb-10 mr-5 rounded-lg rounded-tr-[0px]">
                   <div className="break-words mb-3 text-sm">{item.text}</div>
                   <div className="absolute bottom-1 right-2 text-[#64C5E8] flex gap-2 items-center">
                     <p className="text-slate-500 text-xs">{`${formatTime(
