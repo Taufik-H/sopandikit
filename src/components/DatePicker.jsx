@@ -1,15 +1,23 @@
+import { FaRegCalendarAlt } from 'react-icons/fa';  // Import ikon kalender
+
 const DatePicker = ({ label, labelClass, name, onChange }) => {
   return (
     <div className="flex flex-col">
       <label className={`${labelClass} `}>{label}</label>
-      <input
-        className="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-slate-400 transition-all duration-200"
-        type="date"
-        name={name}
-        onChange={onChange}
-      />
+      <div className="flex border border-slate-300 rounded-md focus-within:ring-2 focus-within:ring-slate-400 transition-all duration-200">
+        <div className="p-2">
+          <FaRegCalendarAlt />
+        </div>
+        <input
+          className="flex-grow px-2 py-2 focus:outline-none"
+          type="date"
+          name={name}
+          onChange={onChange}
+        />
+      </div>
     </div>
   );
 };
 
 export default DatePicker;
+
