@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { TbChecks } from "react-icons/tb";
+import { HiOutlineClipboard } from "react-icons/hi";
+import { LuClipboardCheck } from "react-icons/lu";
 import Input from "./Input";
 import "../App.css";
 import bg from "../assets/bg.png";
@@ -20,14 +22,12 @@ const Content = () => {
   const handleCopy = () => {
     navigator.clipboard.writeText(content[isStatusActive].text).then(
       function () {
-        
-        setCopyMessage("Teks berhasil disalin!");
+        setCopyMessage("Teks disalin!");
         setTimeout(() => {
           setCopyMessage("");
-        }, 2000); 
+        }, 2000);
       },
       function (err) {
-      
         setCopyMessage("Gagal menyalin teks.");
       }
     );
@@ -71,7 +71,7 @@ const Content = () => {
     {
       title: "siswa",
       text: `Dengan hormat,\n\nSebagai wali dari ${
-        inputs.nama 
+        inputs.nama
       }, saya bermaksud untuk memberitahukan bahwa ${
         inputs.nama
       } tidak dapat hadir di sekolah pada ${formatDateIndonesian(
@@ -162,23 +162,28 @@ const Content = () => {
               name="tanggal"
               onChange={handleDateChange}
             />
-
-            {/* <Input
-              label={isStatusActive === 0 ? "Kepada" : "Nama Dosen"}
-              name="kepada"
-              onChange={handleInputChange}
-              labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
-            /> */}
           </>
         )}
         <button
           onClick={handleCopy}
-          className="mt-5 px-4 py-2 rounded-lg bg-green-500 text-white transition-all hover:bg-blue-600"
+          className={`mt-5 px-4 py-2 rounded-lg ${
+            copyMessage
+              ? "bg-green-500"
+              : "bg-white border-2 border-slate-300 border-inherit text-slate-800 hover:bg-slate-200"
+          }  text-white transition-all  flex gap-2 items-center`}
         >
-          Salin Teks
+          {copyMessage ? (
+            <>
+              <LuClipboardCheck />
+              {copyMessage}
+            </>
+          ) : (
+            <>
+              <HiOutlineClipboard />
+              Salin Teks
+            </>
+          )}
         </button>
-
-        {copyMessage && <p className="mt-3 text-green-500">{copyMessage}</p>}
       </div>
 
       {content.map(
