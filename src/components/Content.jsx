@@ -9,7 +9,7 @@ import DatePicker from "./DatePicker";
 
 const Content = () => {
   const status = ["siswa", "kuliah"];
-  const [isStatusActive, setisStatusActive] = useState(0);
+  const [isStatusActive, setisStatusActive] = useState(null);
   const [copyMessage, setCopyMessage] = useState("");
   const [inputs, setInputs] = useState({
     izin: "",
@@ -18,9 +18,12 @@ const Content = () => {
     namaWali: "",
     namaGuru: "",
     tanggal: "",
+    kelas: "",
+    nim: "",
   });
   const handleCopy = () => {
-    navigator.clipboard.writeText(content[isStatusActive].text).then(
+    const textToCopy = content[isStatusActive].text.join("\n");
+    navigator.clipboard.writeText(textToCopy).then(
       function () {
         setCopyMessage("Teks disalin!");
         setTimeout(() => {
@@ -32,6 +35,7 @@ const Content = () => {
       }
     );
   };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputs((prevState) => ({
@@ -70,29 +74,42 @@ const Content = () => {
   const content = [
     {
       title: "siswa",
-      text: `Dengan hormat,\n\nSebagai wali dari ${
-        inputs.nama
-      }, saya bermaksud untuk memberitahukan bahwa ${
-        inputs.nama
-      } tidak dapat hadir di sekolah pada ${formatDateIndonesian(
-        inputs.tanggal
-      )} dikarenakan ${
-        inputs.izin
-      }. Mohon kerjasamanya untuk memberikan informasi jika ada tugas atau kegiatan penting yang terlewat.\n\nDemikian surat izin ini saya sampaikan. Atas perhatian dan kerjasamanya saya ucapkan terima kasih.\n\nHormat saya,\n${
-        inputs.namaWali
-      }`,
+      text: `Assalamualaikum, selamat pagi 
+Yth. Bapak/Ibu guru wali kelas ${inputs.kelas ? inputs.kelas : "[KELAS]"},
+Perkenalkan saya ${
+        inputs.namaWali ? inputs.namaWali : "[NAMA WALI]"
+      } selaku wali murid atas nama ${
+        inputs.nama ? inputs.nama : "[NAMA MURID]"
+      }, dengan ini saya menyampaikan bahwa pada hari ini ${
+        inputs.tanggal ? formatDateIndonesian(inputs.tanggal) : "[TANGGAL]"
+      }, anak saya tidak dapat mengikuti kegiatan pembelajaran seperti biasa dikarenakan ${
+        inputs.izin ? inputs.izin : "[ALASAN]"
+      }.
+Demikian surat izin ini kami sampaikan, atas perhatian dan kebijaksanaan bapak/ibu guru, kami ucapkan terima kasih.
+Wassalamualaikum Wr. Wb.
+
+Hormat kami
+Wali Murid
+
+${inputs.namaWali ? inputs.namaWali : "[NAMA WALI]"}`.split("\n"),
     },
     {
       title: "kuliah",
-      text: `Dengan hormat,\n\nSaya, ${
-        inputs.nama
-      }, bermaksud untuk memberitahukan bahwa saya tidak dapat menghadiri perkuliahan pada ${formatDateIndonesian(
-        inputs.tanggal
-      )} dikarenakan ${
-        inputs.izin
-      }. Mohon kerjasamanya untuk memberikan informasi jika ada tugas atau kegiatan penting yang terlewat.\n\nDemikian surat izin ini saya sampaikan. Atas perhatian dan kerjasamanya saya ucapkan terima kasih.\n\nHormat saya,\n${
-        inputs.nama
-      }`,
+      text: `Assalamu'alaikum warahmatullahi wabarakatuh.
+
+Dengan hormat, saya mahasiswa yang bernama :
+Nama :  ${inputs.nama ? inputs.nama : "[NAMA]"}
+NIM : ${inputs.nim ? inputs.nim : "[NIM]"}
+      
+Memberitahukan bahwa pada hari ini ${
+        inputs.tanggal ? formatDateIndonesian(inputs.tanggal) : "[TANGGAL]"
+      }, saya memohon izin tidak dapat mengikuti kegiatan perkuliahan dikarenakan ${
+        inputs.izin ? inputs.izin : "[ALASAN]"
+      }.
+      
+Atas perhatiannya saya ucapkan terima kasih
+      
+Wasalamualaikum Warahmatullah Wabarakatuh.`.split("\n"),
     },
   ];
 
@@ -124,6 +141,12 @@ const Content = () => {
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
             <Input
+              label={"kelas"}
+              name="kelas"
+              onChange={handleInputChange}
+              labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
+            />
+            <Input
               label={"Alasan Izin"}
               name="izin"
               onChange={handleInputChange}
@@ -151,8 +174,8 @@ const Content = () => {
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
             <Input
-              label={"Alasan Izin"}
-              name="izin"
+              label={"Nim"}
+              name="nim"
               onChange={handleInputChange}
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
@@ -161,6 +184,12 @@ const Content = () => {
               labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500 w-full"
               name="tanggal"
               onChange={handleDateChange}
+            />
+            <Input
+              label={"Alasan Izin"}
+              name="izin"
+              onChange={handleInputChange}
+              labelClass="mt-5 mb-2 uppercase font-semibold text-sm text-slate-500"
             />
           </>
         )}
@@ -185,29 +214,51 @@ const Content = () => {
           )}
         </button>
       </div>
-
-      {content.map(
-        (item, index) =>
-          index === isStatusActive && (
-            <div key={index} className="w-full">
-              <div className="flex relative rounded-md mt-2 justify-end w-full bg-slate-700 overflow-hidden">
-                <img
-                  src={bg}
-                  alt="bg"
-                  className="w-full h-full object-cover absolute"
-                />
-                <div className="chat-bubble relative w-64 p-2 bg-[#D9FDD3] mt-10 float-right mb-10 mr-5 rounded-lg rounded-tr-[0px]">
-                  <div className="break-words mb-3 text-sm">{item.text}</div>
-                  <div className="absolute bottom-1 right-2 text-[#64C5E8] flex gap-2 items-center">
-                    <p className="text-slate-500 text-xs">{`${formatTime(
-                      time
-                    )}`}</p>
-                    <TbChecks />
-                  </div>
+      {isStatusActive === null ? (
+        <div className=" relative rounded-md mt-2 h-72 w-full bg-slate-700">
+          <img
+            src={bg}
+            alt="bg"
+            className="w-full h-full object-cover absolute"
+          />
+        </div>
+      ) : (
+        content.map(
+          (item, index) =>
+            isStatusActive === index && (
+              <div key={index} className="w-full">
+                <div className="flex relative rounded-md mt-2 justify-end min-h-72 w-full bg-slate-700 overflow-hidden">
+                  <img
+                    src={bg}
+                    alt="bg"
+                    className="w-full h-full object-cover absolute"
+                  />
+                  {isStatusActive !== null && (
+                    <div
+                      className={`chat-bubble  w-64 md:w-7/12 p-2 bg-[#D9FDD3] mt-10  mb-10 mr-5 rounded-lg rounded-tr-[0px] ${
+                        isStatusActive === index ? "slide-up-enter" : ""
+                      }`}
+                    >
+                      <div className="break-words mb-3 text-sm">
+                        {item.text.map((line, idx) => (
+                          <React.Fragment key={idx}>
+                            {line}
+                            <br />
+                          </React.Fragment>
+                        ))}
+                      </div>
+                      <div className=" justify-end text-[#64C5E8] flex gap-2 items-center">
+                        <p className="text-slate-500 text-xs">{`${formatTime(
+                          time
+                        )}`}</p>
+                        <TbChecks />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          )
+            )
+        )
       )}
     </div>
   );
