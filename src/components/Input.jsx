@@ -9,7 +9,7 @@ const Input = ({ label, labelClass, name, onChange }) => {
         type="text"
         name={name}
         placeholder={`masukan ${label}`}
-        onChange={onChange} // Anda tidak perlu memanggil setValue di sini karena Anda sudah mengaturnya di Content component
+        onChange={onChange}
       />
     </div>
   );

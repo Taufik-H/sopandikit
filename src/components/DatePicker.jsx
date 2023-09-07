@@ -1,4 +1,4 @@
-import { FaRegCalendarAlt } from "react-icons/fa"; // Import ikon kalender
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 const DatePicker = ({ label, labelClass, name, onChange }) => {
   return (
