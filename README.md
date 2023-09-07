@@ -1,9 +1,18 @@
-# React + Vite
+Berikut adalah perbaikan untuk `README.md` dengan layout Markdown yang lebih rapi:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# SopanDikit: Dibangun dengan ViteJs
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# sopandikit
+![SopanDikit Preview](https://raw.githubusercontent.com/Taufik-H/sopandikit/main/src/assets/ss.png)
+
+**SopanDikit** merupakan platform digital yang dirancang khusus bagi mereka yang kadang merasa kesulitan atau malas dalam mengetik pesan izin kepada guru atau dosen. Dengan antarmuka yang sederhana, pengguna dapat dengan cepat membuat pesan izin yang sopan.
+
+## Teknologi yang Digunakan
+
+- **ViteJs - Reactjs**: Kerangka kerja JavaScript yang mempercepat proses pengembangan.
+- **TailwindCss**: Kerangka kerja CSS untuk mendesain antarmuka pengguna yang responsif dan modern.
+
+> 📌 **Pesan Penting:** Meski alat ini memudahkan, kita seharusnya tetap memahami pentingnya berkomunikasi dengan sopan melalui tulisan. Jangan terlalu bergantung, namun gunakan sebagai panduan.
+
+---
