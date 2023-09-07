@@ -7,7 +7,7 @@ import DatePicker from "./DatePicker";
 
 const Content = () => {
   const status = ["siswa", "kuliah"];
-  const [isStatusActive, setisStatusActive] = useState(null);
+  const [isStatusActive, setisStatusActive] = useState(0);
   const [copyMessage, setCopyMessage] = useState("");
   const [inputs, setInputs] = useState({
     izin: "",
