@@ -1,17 +1,29 @@
 .chat-bubble {
-  position: relative;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .chat-bubble::after {
   content: "";
   position: absolute;
   top: 0;
-  right: -6px; /* Adjust this value depending on your desired tail size */
+  right: -6px;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10px 10px 0 0; /* Tail size */
+  border-width: 10px 10px 0 0;
   border-color: #d9fdd3 transparent transparent transparent;
   z-index: -1;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.slide-up-enter {
+  animation: slideUp 0.5s forwards;
 }
