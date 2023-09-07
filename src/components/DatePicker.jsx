@@ -1,6 +1,6 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-const DatePicker = ({ label, labelClass, name, onChange }) => {
+const DatePicker = ({ label, labelClass, name, onChange, value }) => {
   return (
     <div className="flex flex-col">
       <label className={`${labelClass} `}>{label}</label>
@@ -13,6 +13,7 @@ const DatePicker = ({ label, labelClass, name, onChange }) => {
           type="date"
           name={name}
           onChange={onChange}
+          value={value}
         />
       </div>
     </div>

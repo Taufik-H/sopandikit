@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ label, labelClass, name, onChange }) => {
+const Input = ({ label, labelClass, name, onChange, value }) => {
   return (
     <div className="flex flex-col">
       <label className={`${labelClass} `}>{label}</label>
@@ -10,6 +10,8 @@ const Input = ({ label, labelClass, name, onChange }) => {
         name={name}
         placeholder={`masukan ${label}`}
         onChange={onChange}
+        value={value}
+        spellCheck="false"
       />
     </div>
   );
