@@ -1,7 +1,3 @@
-Berikut adalah perbaikan untuk `README.md` dengan layout Markdown yang lebih rapi:
-
----
-
 # SopanDikit: Dibangun dengan ViteJs
 
 ![SopanDikit Preview](https://raw.githubusercontent.com/Taufik-H/sopandikit/main/src/assets/ss.png)
