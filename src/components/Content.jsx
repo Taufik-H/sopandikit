@@ -114,7 +114,7 @@ Wasalamualaikum Warahmatullah Wabarakatuh.`.split("\n"),
   ];
 
   return (
-    <div className="w-full flex justify-center mt-10 gap-10 md:px-20 px-5 items-center md:items-start flex-col md:flex-row">
+    <div className="w-full flex justify-center mt-10 gap-10 md:px-20 px-5 items-center md:items-start flex-col md:flex-row ">
       <div className="w-full md:w-1/2">
         <ul className="flex gap-5 ">
           {status.map((item, index) => (
